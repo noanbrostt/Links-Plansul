@@ -1,11 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="pt-BR" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Links Plansul</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <style>
+            :root {
+                --bg-dark: #121212;
+                --bg-light: #f4f4f4;
+                --text-dark: #f4f4f4;
+                --text-light: #121212;
+                --primary: #6200ea;
+            }
+
+            [data-theme="dark"] {
+                --bg-color: var(--bg-dark);
+                --text-color: var(--text-dark);
+            }
+            [data-theme="light"] {
+                --bg-color: var(--bg-light);
+                --text-color: var(--text-light);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: sans-serif;
+                background: var(--bg-color);
+                color: var(--text-color);
+                transition: background 0.3s, color 0.3s;
+                overflow-x: hidden;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                opacity: 0;
+                transform: translateY(-100%);
+                transition: all 1s ease;
+            }
+
+            #theme-toggle {
+                padding: 0.5rem 1rem;
+                background: var(--primary);
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .link-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            .link-card img {
+                width: 100%;
+                height: auto;
+                filter: blur(10px);
+                transition: all 0.5s ease;
+                transform: scale(1);
+            }
+
+            .link-card .overlay {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--text-color);
+                font-size: 1.2rem;
+                background: rgba(0, 0, 0, 0.4);
+                transition: opacity 0.3s ease;
+            }
+
+            .link-card:hover img {
+                filter: blur(0);
+                transform: scale(1.1);
+            }
+
+            .link-card:hover .overlay {
+                opacity: 0;
+            }
+
+            /* Splash Screen */
+            .splash {
+                position: fixed;
+                inset: 0;
+                background: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10;
+                animation: splashOut 3s forwards;
+            }
+
+            .splash h1 {
+                color: white;
+                font-size: 3rem;
+            }
+
+            @keyframes splashOut {
+                0% {
+                    opacity: 1;
+                }
+                80% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    visibility: hidden;
+                    display: none;
+                }
+            }
+
+            /* Animation when logo comes in */
+            body.loaded .logo {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="splash">
+            <h1>Links Plansul</h1>
+        </div>
+
+        <header>
+            <h1 class="logo">Links Plansul</h1>
+            <button id="theme-toggle">Alternar Tema</button>
+        </header>
+
+        <main class="grid">
+            <!-- Cada imagem é um link -->
+            <a href="https://site1.com" class="link-card">
+                <div class="overlay">Site 1</div>
+                <img src="site1.jpg" alt="Site 1" />
+            </a>
+            <a href="https://site2.com" class="link-card">
+                <div class="overlay">Site 2</div>
+                <img src="site2.jpg" alt="Site 2" />
+            </a>
+            <a href="https://site3.com" class="link-card">
+                <div class="overlay">Site 3</div>
+                <img src="site3.jpg" alt="Site 3" />
+            </a>
+            <a href="https://site4.com" class="link-card">
+                <div class="overlay">Site 4</div>
+                <img src="site4.jpg" alt="Site 4" />
+            </a>
+            <a href="https://site5.com" class="link-card">
+                <div class="overlay">Site 5</div>
+                <img src="site5.jpg" alt="Site 5" />
+            </a>
+            <a href="https://site6.com" class="link-card">
+                <div class="overlay">Site 6</div>
+                <img src="site6.jpg" alt="Site 6" />
+            </a>
+        </main>
+
+        <!-- <script src="script.js"></script> -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeToggle = document.getElementById("theme-toggle");
+                const root = document.documentElement;
+
+                // Splash screen removal and logo entrance
+                setTimeout(() => {
+                    document.querySelector(".splash").style.display = "none";
+                    document.body.classList.add("loaded");
+                }, 3000);
+
+                // Load saved theme from cookie
+                const savedTheme = document.cookie
+                    .split("; ")
+                    .find((row) => row.startsWith("theme="))
+                    ?.split("=")[1];
+
+                if (savedTheme) {
+                    root.setAttribute("data-theme", savedTheme);
+                }
+
+                themeToggle.addEventListener("click", () => {
+                    const currentTheme = root.getAttribute("data-theme");
+                    const newTheme = currentTheme === "dark" ? "light" : "dark";
+                    root.setAttribute("data-theme", newTheme);
+                    document.cookie = `theme=${newTheme}; path=/; max-age=31536000`;
+                });
+            });
+        </script>
+    </body>
 </html>
