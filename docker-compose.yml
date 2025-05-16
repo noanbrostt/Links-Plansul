@@ -3,7 +3,7 @@ services:
     build: .
     container_name: links-plansul
     ports:
-      - "5006:80"
+      - "5006:5006"
     volumes:
       - ./public:/usr/share/nginx/html:ro
     restart: unless-stopped
