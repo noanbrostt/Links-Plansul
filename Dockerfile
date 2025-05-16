@@ -10,5 +10,5 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copia seus arquivos HTML, JS, CSS para a pasta correta
 COPY ./public /usr/share/nginx/html
 
-# Expõe a porta 80
+# Expõe a porta 5006
 EXPOSE 5006
