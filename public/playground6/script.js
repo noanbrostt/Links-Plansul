@@ -36,36 +36,28 @@ const links = [
     {
         id: "link-auto-avaliacao",
         plansul: "http://172.32.1.81/playground4/",
-        caixa: null,
-        mostrarNaPlansul: true,
-        mostrarNacaixa: false,
+        caixa: "http://10.98.14.42/playground4/",
         titulo: "Auto Avaliação",
         urlImagem: "./imgs/Auto Avaliação.png",
     },
     {
         id: "link-cadastro-pessoal",
         plansul: "http://172.32.1.81/cp/",
-        caixa: null,
-        mostrarNaPlansul: true,
-        mostrarNacaixa: false,
+        caixa: "http://10.98.14.42/cp/",
         titulo: "Cadastro Pessoal",
         urlImagem: "./imgs/Cadastro Pessoal.png",
     },
     {
         id: "link-callcheck",
         plansul: "http://172.32.1.81/playground2/",
-        caixa: null,
-        mostrarNaPlansul: true,
-        mostrarNacaixa: false,
+        caixa: "http://10.98.14.42/playground2/",
         titulo: "CallCheck",
         urlImagem: "./imgs/CallCheck.png",
     },
     {
         id: "link-controle-de-pontos",
         plansul: "http://172.32.1.81/playground1/",
-        caixa: null,
-        mostrarNaPlansul: true,
-        mostrarNacaixa: false,
+        caixa: "http://10.98.14.42/playground1/",
         titulo: "Controle de Pontos",
         urlImagem: "./imgs/Controle de Pontos.png",
     },
@@ -73,16 +65,13 @@ const links = [
         id: "link-skillup",
         plansul: null,
         caixa: "http://10.98.20.103:5000/",
-        mostrarNaPlansul: false,
-        mostrarNacaixa: true,
         titulo: "Skill Up",
         urlImagem: "./imgs/Skill Up.png",
     },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // const isPlansul = window.location.href.includes("172.32.1.81");
-    const isPlansul = window.location.href.includes("playground");
+    const isPlansul = window.location.href.includes("172.32.1.81") || window.location.href.includes("http://127.0.0.1:5500/");
     const isCaixa = window.location.href.includes("10.98.");
 
     const container = document.querySelector("main.row");
@@ -95,9 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
     linksOrdenados.forEach((link) => {
         let href = null;
 
-        if (isPlansul && link.mostrarNaPlansul && link.plansul) {
+        if (isPlansul && link.plansul) {
             href = link.plansul;
-        } else if (isCaixa && link.mostrarNacaixa && link.caixa) {
+        } else if (isCaixa && link.caixa) {
             href = link.caixa;
         }
 

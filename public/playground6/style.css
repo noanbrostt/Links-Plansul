@@ -72,6 +72,8 @@ header {
 }
 
 .link-card {
+    flex: 0 0 30%;
+    max-width: 30%;
     aspect-ratio: 16 / 9;
     position: relative;
     overflow: hidden;
@@ -81,20 +83,21 @@ header {
     cursor: pointer;
 }
 
+/* 2 por linha */
 @media (max-width: 950px) {
     .link-card {
-        flex: 0 0 40%;
-        max-width: 40%;
+        flex: 0 0 42%;
+        max-width: 42%;
     }
 }
 
+/* 1 por linha */
 @media (max-width: 600px) {
     .link-card {
-        flex: 0 0 80%;
-        max-width: 80%;
+        flex: 0 0 82%;
+        max-width: 82%;
     }
 }
-
 
 .link-card img {
     width: 100%;
@@ -120,12 +123,12 @@ header {
 }
 
 .link-card:hover {
-    transform: scale(1.14);
+    transform: scale(1.08);
 }
 
 .link-card:hover img {
     filter: blur(0);
-    transform: scale(1.18);
+    transform: scale(1.16);
 }
 
 .link-card:hover .overlay {
