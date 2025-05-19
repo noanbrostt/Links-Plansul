@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Torna os links dinamicos
-// Para adicionar/remover links, basta adicionar/remover do array abaixo
+// Para adicionar/remover links, basta adicionar/remover do array abaixo e colocar um print na pasta "imgs"
 const links = [
     {
         id: "link-auto-avaliacao",
