@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // Para adicionar/remover links, basta adicionar/remover do array abaixo e colocar um print na pasta "imgs"
 const links = [
     {
-        id: "link-auto-avaliacao",
+        id: "link-avaliacao-180",
         plansul: "http://172.32.1.81/playground4/",
         caixa: "http://10.98.14.42/playground4/",
-        titulo: "Auto Avaliação",
-        urlImagem: "./imgs/Auto Avaliação.png",
+        titulo: "Avaliação 180º",
+        urlImagem: "./imgs/Avaliação 180.png",
     },
     {
         id: "link-cadastro-pessoal",
@@ -71,7 +71,9 @@ const links = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const isPlansul = window.location.href.includes("172.32.1.81") || window.location.href.includes("http://127.0.0.1:5500/");
+    const isPlansul =
+        window.location.href.includes("172.32.1.81") ||
+        window.location.href.includes("http://127.0.0.1:5500/");
     const isCaixa = window.location.href.includes("10.98.");
 
     const container = document.querySelector("main.row");
