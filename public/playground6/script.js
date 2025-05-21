@@ -68,6 +68,13 @@ const links = [
         titulo: "Skill Up",
         urlImagem: "./imgs/Skill Up.png",
     },
+    {
+        id: "link-sistraf",
+        plansul: null,
+        caixa: "http://10.98.14.42/sistraf/",
+        titulo: "Sistraf",
+        urlImagem: "./imgs/Sistraf.png",
+    },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
