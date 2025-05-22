@@ -75,6 +75,13 @@ const links = [
         titulo: "Sistraf",
         urlImagem: "./imgs/Sistraf.png",
     },
+    {
+        id: "link-callcheck-copel",
+        plansul: "http://172.32.1.81/playground8/",
+        caixa: "http://10.98.14.42/playground8/",
+        titulo: "Callcheck Copel",
+        urlImagem: "./imgs/Callcheck Copel.png",
+    },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -95,8 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isPlansul && link.plansul) {
             href = link.plansul;
+            className = "link-card link-plansul";
         } else if (isCaixa && link.caixa) {
             href = link.caixa;
+            className = "link-card link-caixa";
         }
 
         // Se não for para mostrar, nem cria o elemento
@@ -107,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         a.id = link.id;
         a.href = href;
         a.target = "_blank";
-        a.className = "link-card";
+        a.className = className;
 
         // Cria a overlay (título)
         const overlay = document.createElement("div");

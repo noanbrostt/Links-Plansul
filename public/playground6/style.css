@@ -82,8 +82,6 @@ header {
 }
 
 .link-card {
-    flex: 0 0 30%;
-    max-width: 30%;
     aspect-ratio: 16 / 9;
     position: relative;
     overflow: hidden;
@@ -91,6 +89,16 @@ header {
     transition-delay: 0.1s;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.link-plansul {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.link-caixa {
+    flex: 0 0 23%;
+    max-width: 23%;
 }
 
 /* 2 por linha */
